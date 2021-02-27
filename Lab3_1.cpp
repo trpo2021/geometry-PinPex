@@ -1,5 +1,6 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
+#include <cstdlib>
 using namespace std;
 const double pi = 3.141592653589793238463;
 int ind(string Object) {
@@ -39,25 +40,25 @@ int main()
 		j = i;
 		while (Object[j] != ' ') j += 1;
 		j -= 1;
-		Point1 = stof(Object.substr(i, j));
+		Point1 = atoi(Object.substr(i, j).c_str());
 		cout << "Point 1 = " << Point1 << endl;
 		i = j + 1;
 		while (Object[i] == ' ') i += 1;
 		j = i;
 		while (Object[j] != ',') j += 1;
 		j -= 1;
-		Point2 = stof(Object.substr(i, j));
+		Point2 = atoi(Object.substr(i, j).c_str());
 		j += 2;
 		i = j;
 		while (Object[i] == ' ') i += 1;
 		j = i;
 		while (Object[j] != ')') j += 1;
-		Number = stof(Object.substr(i, j));
+		Number = atoi(Object.substr(i, j).c_str());
 		cout << "Point 2 = " << Point2 << endl;
 		perimeter = 2 * pi * Number;
 		cout << "Perimeter = " << perimeter << endl;
 		area = pi * Number * Number;
-		cout << "Area = " << perimeter << endl;
+		cout << "Area = " << area << endl;
 		break; }
 	case (2):
 		cout << "triangle" << endl;
@@ -66,4 +67,5 @@ int main()
 		cout << "polygon" << endl;
 		break;
 	}
+        return 0;
 }
