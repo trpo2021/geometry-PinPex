@@ -24,6 +24,7 @@ int ind(string Object)
         return 2;
     if (strcmp(Object3.c_str(), Object.c_str()) == 0)
         return 3;
+    return 0;
 }
 int main()
 {
