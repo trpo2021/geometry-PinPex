@@ -40,7 +40,7 @@ int main()
         while (Object[j] != ' ')
             j += 1;
         j -= 1;
-        Point1 = atoi(Object.substr(i, j).c_str());
+        Point1 = atof(Object.substr(i, j).c_str());
         cout << "Point 1 = " << Point1 << endl;
         i = j + 1;
         while (Object[i] == ' ')
@@ -49,7 +49,7 @@ int main()
         while (Object[j] != ',')
             j += 1;
         j -= 1;
-        Point2 = atoi(Object.substr(i, j).c_str());
+        Point2 = atof(Object.substr(i, j).c_str());
         j += 2;
         i = j;
         while (Object[i] == ' ')
@@ -57,7 +57,7 @@ int main()
         j = i;
         while (Object[j] != ')')
             j += 1;
-        Number = atoi(Object.substr(i, j).c_str());
+        Number = atof(Object.substr(i, j).c_str());
         cout << "Point 2 = " << Point2 << endl;
         perimeter = 2 * pi * Number;
         cout << "Perimeter = " << perimeter << endl;
