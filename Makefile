@@ -1,2 +1,2 @@
-geo:
-	g++ -Wall -Werror -o geo Lab3_1.cpp
+geo.exe:
+	g++ -Wall -Werror -o geo.exe Lab3_1.cpp
