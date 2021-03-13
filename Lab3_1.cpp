@@ -14,16 +14,19 @@ string strtolower(string a)
 
 int ind(string Object)
 {
-    string Object1 = "cyrcle";
+    string Object1 = "circle";
     string Object2 = "triangle";
     string Object3 = "polygon";
-    Object = strtolower(Object);
-    if (strcmp(Object1.c_str(), Object.c_str()) == 0)
+    Object = strtolower(Object.substr(0, Object.find('(')));
+    if (strcmp(Object1.c_str(), Object.c_str()) == 0) {
         return 1;
-    if (strcmp(Object2.c_str(), Object.c_str()) == 0)
+    }
+    if (strcmp(Object2.c_str(), Object.c_str()) == 0) {
         return 2;
-    if (strcmp(Object3.c_str(), Object.c_str()) == 0)
+    }
+    if (strcmp(Object3.c_str(), Object.c_str()) == 0) {
         return 3;
+    }
     return 0;
 }
 int main()
@@ -32,8 +35,10 @@ int main()
     double Point1, Point2, Number;
     double perimeter, area;
     int i, j;
+
     getline(cin, Object);
     cout << Object << endl;
+
     switch (ind(Object)) {
     case (1): {
         i = 7;
@@ -72,6 +77,10 @@ int main()
     case (3):
         cout << "polygon" << endl;
         break;
+    case (0): {
+        cout << "Error" << endl;
+        break;
+    }
     }
     return 0;
 }
