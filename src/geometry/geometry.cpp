@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <iostream>
 #include <string.h>
-#include "libgeometry/libgeometry.h"
+#include <libgeometry/libgeometry.h>
 
 using namespace std;
 const double pi = 3.141592653589793238463;
