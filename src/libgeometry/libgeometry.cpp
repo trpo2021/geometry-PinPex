@@ -1,6 +1,6 @@
-#include <string.h>
-#include <iostream>
 #include "libgeometry.h"
+#include <iostream>
+#include <string.h>
 using namespace std;
 string strtolower(string a)
 {

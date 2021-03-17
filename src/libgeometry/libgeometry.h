@@ -1,8 +1,8 @@
 #ifndef IND_GEOMETRY
 #define IND_GEOMETRY
 
-#include <string.h>
 #include <iostream>
+#include <string.h>
 
 using namespace std;
 
