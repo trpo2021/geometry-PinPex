@@ -1,7 +1,7 @@
-#include <stdlib.h>
 #include <iostream>
-#include <string.h>
 #include <libgeometry/libgeometry.h>
+#include <stdlib.h>
+#include <string.h>
 
 using namespace std;
 const double pi = 3.141592653589793238463;
@@ -60,5 +60,5 @@ int main()
     }
     }
     system("pause");
-	return 0;
+    return 0;
 }
