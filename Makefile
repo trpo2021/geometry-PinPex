@@ -33,8 +33,10 @@ $(OBJ_APP).o: $(SRC_LIB).cpp
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) -o $@ $<
 
 clean:
-	rm $(OBJ_APP).o $(OBJ_APP).d 
-	rm $(OBJ_LIB).o $(OBJ_LIB).d 
+	find $(OBJ_DIR)/$(SRC_DIR)/$(APP_NAME) -name '*.o' -exec $(RM) '{}' \; 
+	find $(OBJ_DIR)/$(SRC_DIR)/$(LIB_NAME) -name '*.o' -exec $(RM) '{}' \;
+	find $(OBJ_DIR)/$(SRC_DIR)/$(APP_NAME) -name '*.d' -exec $(RM) '{}' \; 
+	find $(OBJ_DIR)/$(SRC_DIR)/$(LIB_NAME) -name '*.d' -exec $(RM) '{}' \;
 	
 	
 	
