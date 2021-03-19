@@ -1,6 +1,7 @@
 #ifndef IND_GEOMETRY
 #define IND_GEOMETRY
 
+#pragma once
 #include <iostream>
 #include <string.h>
 
