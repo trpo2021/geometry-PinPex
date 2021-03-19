@@ -6,6 +6,6 @@
 
 using namespace std;
 
-void findPoints(string Object, double *Points);
+void findPoints(string Object, double* Points);
 
 #endif
