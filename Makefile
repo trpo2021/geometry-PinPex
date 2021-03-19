@@ -33,10 +33,10 @@ SRC_EXT = cpp
 .PHONY: all
 all: $(EXE_PATH).exe
 
-$(EXE_PATH).exe: $(OBJ_APP).o $(LIB_PATH)
+$(EXE_PATH).exe: $(OBJ_APP)/$(APP_NAME).o $(LIB_PATH)
 	$(CC) $(CFLAGS) $(CPPFLAGS) $^ -o $@
 
-$(OBJ_APP).o: $(SRC_APP)/$(APP_NAME).cpp
+$(OBJ_APP)/$(APP_NAME).o: $(SRC_APP)/$(APP_NAME).cpp
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) -o $@ $<
 	
 $(LIB_PATH): $(OBJ_LIB)/Find.o $(OBJ_LIB)/Calc.o $(OBJ_LIB)/libgeometry.o
