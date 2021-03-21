@@ -49,6 +49,8 @@ $(OBJ_LIB)/Calc.o: $(SRC_LIB)/Calc.cpp
 $(OBJ_LIB)/libgeometry.o: $(SRC_LIB)/libgeometry.cpp
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) -o $@ $<
 
+.PHONY: clean
+
 clean:
 	find $(OBJ_APP) -name "*.o" -type f -delete
 	find $(OBJ_APP) -name "*.d" -type f -delete
