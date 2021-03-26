@@ -26,7 +26,7 @@ int main()
 	
 	int** check = new int*[n];
     cir* circles = new cir[n];
-	tri* triangles = new tri[n];
+	tri* tr = new tri[n];
     string Object;
 
     
@@ -47,9 +47,15 @@ int main()
         }
         case (2):{
 			findvert(Object, Points);
-			triangles[i].Ob = Object;
-			for(j=0;j<6;++j){ triangles[i].points[j] = Points[j]; cout << triangles[i].points[j] << endl; }
-			area = calcAreatri
+			tr[i].Ob = Object;
+			perimeter = calcParamtriandArea(Points,area);
+			if(perimeter == -1) cout << "This triangle not exists" << endl;
+			tr[i].ar = 0;
+			tr[i].per = 0;
+			break;
+			for(j=0;j<6;++j) tr[i].ps[j] = Points[j];
+			tr[i].ar = area;
+			tr[i].per = perimeter;
 			
             break;
 		}
@@ -66,22 +72,13 @@ int main()
         cout << "Perimeter = " << circles[i].per << endl;
         cout << "Area = " << circles[i].ar << endl;
     }
-	
-    double result;
-    for (i = 0; i < n; ++i) {
-        check[i] = new int[n];
-        for (j = 0; j < n; ++j) {
-            result
-                    = sqrt((circles[i].p1 - circles[j].p1)
-                                   * (circles[i].p1 - circles[j].p1)
-                           + (circles[i].p2 - circles[j].p2)
-                                   * (circles[i].p2 - circles[j].p2));
-            if (result - (circles[i].r + circles[j].r) >= 0 && i != j)
-                check[i][j] = j;
-            else
-                check[i][j] = 0;
-        }
+	for (i = 0; i < n; ++i) {
+		if(tr[i].per == 0 && tr[i].ar == 0) continue;
+        for(j=0;j<n;++j) printf("Point[%d] = %f",j + 1, tr[i].ps[j]);
+		printf("Perimeter[%d] = %f",i + 1, tr[i].per);
+		printf("Area[%d] = %f",i + 1, tr[i].ar);
     }
+	
     for (i = 0; i < n; ++i) {
         cout << check[i][0] << endl;
     }
