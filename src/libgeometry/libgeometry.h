@@ -7,6 +7,20 @@
 
 using namespace std;
 
+struct cir {
+    string Ob;
+    double p1;
+    double p2;
+    double r;
+    double per;
+    double ar;
+};
+
+struct tri {
+    string Ob;
+    double points[6];
+};
+
 string strtolower(string a);
 int ind(string Object);
 

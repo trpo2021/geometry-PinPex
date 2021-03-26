@@ -12,19 +12,7 @@
 using namespace std;
 const double pi = 3.141592653589793238463;
 
-struct cir {
-    string Ob;
-    double p1;
-    double p2;
-    double r;
-    double per;
-    double ar;
-};
 
-struct tri {
-    string Ob;
-    double points[6];
-};
 
 int main()
 {
@@ -61,7 +49,7 @@ int main()
 			findvert(Object, Points);
 			triangles[i].Ob = Object;
 			for(j=0;j<6;++j){ triangles[i].points[j] = Points[j]; cout << triangles[i].points[j] << endl; }
-			
+			area = calcAreatri
 			
             break;
 		}
