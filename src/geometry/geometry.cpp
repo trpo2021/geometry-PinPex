@@ -1,4 +1,3 @@
-#include <conio.h>
 #include <iostream>
 #include <libgeometry/libgeometry.h>
 #include <math.h>
