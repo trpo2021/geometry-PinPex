@@ -39,7 +39,7 @@ $(EXE_PATH).exe: $(OBJ_APP)/$(APP_NAME).o $(LIB_PATH)
 $(OBJ_APP)/$(APP_NAME).o: $(SRC_APP)/$(APP_NAME).cpp
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) -o $@ $<
 	
-$(LIB_PATH): $(OBJ_LIB)/Find.o $(OBJ_LIB)/Calc.o $(OBJ_LIB)/libgeometry.o
+$(LIB_PATH): $(OBJ_LIB)/Find.o $(OBJ_LIB)/Calc.o $(OBJ_LIB)/libgeometry.o $(OBJ_LIB)/Input.o $(OBJ_LIB)/output.o $(OBJ_LIB)/CheckIntersection.o
 	ar rcs $@ $^
 
 $(OBJ_LIB)/Find.o: $(SRC_LIB)/Find.cpp
@@ -47,6 +47,12 @@ $(OBJ_LIB)/Find.o: $(SRC_LIB)/Find.cpp
 $(OBJ_LIB)/Calc.o: $(SRC_LIB)/Calc.cpp
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) -o $@ $<	
 $(OBJ_LIB)/libgeometry.o: $(SRC_LIB)/libgeometry.cpp
+	$(CC) -c $(CFLAGS) $(CPPFLAGS) -o $@ $<
+$(OBJ_LIB)/Input.o: $(SRC_LIB)/Input.cpp
+	$(CC) -c $(CFLAGS) $(CPPFLAGS) -o $@ $<
+$(OBJ_LIB)/output.o: $(SRC_LIB)/output.cpp
+	$(CC) -c $(CFLAGS) $(CPPFLAGS) -o $@ $<
+$(OBJ_LIB)/CheckIntersection.o: $(SRC_LIB)/CheckIntersection.cpp
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) -o $@ $<
 
 .PHONY: clean
