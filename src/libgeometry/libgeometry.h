@@ -14,14 +14,33 @@ struct cir {
     double r;
     double per;
     double ar;
+	int *intersec;
+	string *inter;
 };
 
 struct tri {
     string Ob;
-    double points[6];
+    double ps[6];
+	double per;
+    double ar;
+	int *intersec;
+	string *inter;
 };
 
 string strtolower(string a);
 int ind(string Object);
+
+int input();
+void output(cir *circles, tri* tr, int n);
+
+void checkCircTri(cir *circles, tri *tr, int n);
+void checkCircCirc(cir *circles, int n);
+
+double calcArea(double Number);
+double calcParam(double Number);
+double calcParamtriandArea(double *Points, double *area);
+
+void findPoints(string Object, double* Points);
+void findvert(string Object, double* Points);
 
 #endif
