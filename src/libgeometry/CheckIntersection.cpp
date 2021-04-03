@@ -19,7 +19,6 @@ void checkCircCirc(cir* circles, int n)
                                    * (circles[i].p1 - circles[j].p1)
                            + (circles[i].p2 - circles[j].p2)
                                    * (circles[i].p2 - circles[j].p2));
-            cout << Length << endl;
             if ((Length - 2 * circles[i].r) <= 0) {
                 circles[i].intersec[j] = 1;
                 circles[j].intersec[i] = 1;
