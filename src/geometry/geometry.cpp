@@ -80,8 +80,8 @@ int main()
     if (HaveTri == 1)
         checkCircTri(circles, tr, n);
     output(circles, tr, n);
-    delete tr;
-    delete circles;
     system("pause");
+    delete[] tr;
+    delete[] circles;
     return 0;
 }
