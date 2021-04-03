@@ -36,18 +36,6 @@ FIND_LIB = $(shell find $(SRC_LIB) -name '*.cpp')
 
 SRC_EXT = cpp
 
-.PHONY: test
-	
-test: obj/test/main.cpp.o obj/test/test_summ.cpp.o $(LIB_PATH)
-	$(CC) -Isrc -Ithirdparty -MP -MMD  obj/test/main.cpp.o obj/test/test_summ.cpp.o $(LIB_PATH) -o test++
-
-obj/test/test_summ.cpp.o: test/test_summ.cpp thirdparty/ctest.h
-	$(CC) -Isrc -Ithirdparty -MP -MMD  -c -o $@ $<
-
-obj/test/main.cpp.o: test/main.cpp thirdparty/ctest.h
-	$(CC) -Isrc -Ithirdparty -MP -MMD  -c -o $@ $<
-
-
 
 .PHONY: all
 all: $(EXE_PATH).exe
@@ -82,6 +70,20 @@ $(OBJ_LIB)/output.o: $(SRC_LIB)/output.cpp
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) -o $@ $<
 $(OBJ_LIB)/CheckIntersection.o: $(SRC_LIB)/CheckIntersection.cpp
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) -o $@ $<
+
+.PHONY: test
+
+test: bin/test.exe
+
+bin/test.exe: obj/test/main.cpp.o obj/test/test_find.cpp.o $(LIB_PATH)
+	$(CC) -Isrc -Ithirdparty -MP -MMD  obj/test/main.cpp.o obj/test/test_find.cpp.o $(LIB_PATH) -o bin/test.exe
+
+obj/test/test_find.cpp.o: test/test_find.cpp thirdparty/ctest.h
+	$(CC) -Isrc -Ithirdparty -MP -MMD  -c -o $@ $<
+
+obj/test/main.cpp.o: test/main.cpp thirdparty/ctest.h
+	$(CC) -Isrc -Ithirdparty -MP -MMD  -c -o $@ $<
+
 
 .PHONY: clean
 OBJ_TEST = obj/test
