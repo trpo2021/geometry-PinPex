@@ -20,8 +20,8 @@ void findPoints(string Object, double* Points)
         j += 1;
     }
     if ((strtod(Object.substr(i, j - 1).c_str(), NULL) == 0)
-        && (Object.substr(i, j - 1) != "0")
-        && (Object.substr(i, j - 1) != "0.0")) {
+        && ((Object.substr(i, j - 1) != "0")
+        || (Object.substr(i, j - 1) != "0.0"))) {
         printf("Error at column %d: expected '<double>'\n", i - 1);
         system("pause");
         exit(0);
@@ -47,8 +47,10 @@ void findPoints(string Object, double* Points)
         j += 1;
     }
     i = j;
-    while (((Object[j] != ')') ^ (Object[j] != '(')) == 1) {
+    while (1) {
         j += 1;
+		if(Object[j]==')') break;
+		if(Object[j]=='(') break;
     }
     if ((strtod(Object.substr(i, j - 1).c_str(), NULL) == 0)
         && (Object.substr(i, j - 1) != "0")
@@ -66,7 +68,7 @@ void findPoints(string Object, double* Points)
     }
 
     i = Object.length();
-    if (i != j + 2) {
+    if (i != j + 1) {
         while (Object[j] == ' ') {
             j += 1;
         }
@@ -75,6 +77,9 @@ void findPoints(string Object, double* Points)
         exit(0);
     }
 }
+
+
+
 void findvert(string Object, double* Points)
 {
     int i, j;
@@ -161,12 +166,14 @@ void findvert(string Object, double* Points)
         j += 1;
     }
     i = j;
-    while (((Object[j] != ')') ^ (Object[j] != '(')) == 1) {
+    while (1) {
         j += 1;
+		if(Object[j]==')') break;
+		if(Object[j]=='(') break;
     }
     if ((strtod(Object.substr(i, j - 1).c_str(), NULL) == 0)
-        && (Object.substr(i, j - 1) != "0")
-        && (Object.substr(i, j - 1) != "0.0")) {
+        && ((Object.substr(i, j - 1) != "0")
+        || (Object.substr(i, j - 1) != "0.0"))) {
         printf("Error at column %d: expected '<double>'\n", i - 1);
         system("pause");
         exit(0);
@@ -178,7 +185,7 @@ void findvert(string Object, double* Points)
         exit(0);
     }
     i = Object.length();
-    if (i != j + 2) {
+    if (i != j + 1) {
         while (Object[j] == ' ') {
             j += 1;
         }
