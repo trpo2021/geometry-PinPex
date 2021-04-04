@@ -5,13 +5,13 @@
 
 CTEST(Find_points, find)
 {
-    string str("circle(1.002 1.002, 1.002)");
+    string str("circle(84621856.234841231 84621856.234841231, 84621856.234841231)");
 
     double Points[3];
 
     findPoints(str, Points);
 
-    const double Point1[3] = {1.002, 1.002, 1.002};
+    const double Point1[3] = {84621856.234841231, 84621856.234841231, 84621856.234841231};
 
     double temp1, temp2;
     temp1 = Point1[0];
@@ -41,8 +41,8 @@ CTEST(intersections, intersection)
     circles[0].r = 1;
 
     circles[1].Ob = "1";
-    circles[1].p1 = 1.70711;
-    circles[1].p2 = 1.70711;
+    circles[1].p1 = 2.707106781186547524400844362105;
+    circles[1].p2 = 2.707106781186547524400844362105;
     circles[1].r = 1;
 
     const int n = 2;
@@ -71,7 +71,7 @@ CTEST(intersection_and_find, intersection)
 {
     cir circles[2];
     string str1("circle(1 1, 1)");
-    string str2("circle(1.70711 1.70711, 1)");
+    string str2("circle(2.707106781186547524400844362105 2.707106781186547524400844362105, 1)");
     double Points[3];
 
     findPoints(str1, Points);
@@ -101,6 +101,18 @@ CTEST(intersection_and_find, intersection)
     system("pause");
 }
 CTEST(intersection_and_find, to_check)
+{
+    ASSERT_TRUE(1);
+    system("pause");
+}
+CTEST(Calculating_circle, area_and_perimeter)
+{
+    const double Number = 1389.10256;
+	ASSERT_DBL_NEAR(calcParam(Number), 8727.98879516);
+	ASSERT_DBL_NEAR(calcArea(Number), 6062035.7895);
+    system("pause");
+}
+CTEST(Calculating_circle, to_check)
 {
     ASSERT_TRUE(1);
     system("pause");
