@@ -25,12 +25,6 @@ CTEST(Find_points, find)
     ASSERT_DBL_NEAR(temp1, temp2);
     system("pause");
 }
-CTEST(Find_points, to_check)
-{
-    ASSERT_TRUE(1);
-    system("pause");
-}
-
 CTEST(intersections, intersection)
 {
     cir circles[2];
@@ -60,13 +54,6 @@ CTEST(intersections, intersection)
 
     system("pause");
 }
-
-CTEST(intersections, to_check)
-{
-    ASSERT_TRUE(1);
-    system("pause");
-}
-
 CTEST(intersection_and_find, intersection)
 {
     cir circles[2];
@@ -100,20 +87,10 @@ CTEST(intersection_and_find, intersection)
 
     system("pause");
 }
-CTEST(intersection_and_find, to_check)
-{
-    ASSERT_TRUE(1);
-    system("pause");
-}
 CTEST(Calculating_circle, area_and_perimeter)
 {
     const double Number = 1389.10256;
 	ASSERT_DBL_NEAR(calcParam(Number), 8727.98879516);
 	ASSERT_DBL_NEAR(calcArea(Number), 6062035.7895);
-    system("pause");
-}
-CTEST(Calculating_circle, to_check)
-{
-    ASSERT_TRUE(1);
     system("pause");
 }
