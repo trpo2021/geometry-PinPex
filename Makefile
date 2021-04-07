@@ -73,10 +73,10 @@ $(OBJ_LIB)/CheckIntersection.o: $(SRC_LIB)/CheckIntersection.cpp
 
 .PHONY: test
 
-test: bin/test.exe
+test: .github/workflows/test.exe
 
-bin/test.exe: obj/test/main.cpp.o obj/test/test.cpp.o $(LIB_PATH)
-	$(CC) -Isrc -Ithirdparty -MP -MMD  obj/test/main.cpp.o obj/test/test.cpp.o $(LIB_PATH) -o bin/test.exe
+.github/workflows/test.exe: obj/test/main.cpp.o obj/test/test.cpp.o $(LIB_PATH)
+	$(CC) -Isrc -Ithirdparty -MP -MMD  obj/test/main.cpp.o obj/test/test.cpp.o $(LIB_PATH) -o .github/workflows/test.exe
 
 obj/test/test.cpp.o: test/test.cpp thirdparty/ctest.h
 	$(CC) -Isrc -Ithirdparty -MP -MMD  -c -o $@ $<
