@@ -19,19 +19,17 @@ void checkCircCirc(cir* circles, int n)
                                    * (circles[i].p1 - circles[j].p1)
                            + (circles[i].p2 - circles[j].p2)
                                    * (circles[i].p2 - circles[j].p2));
-<<<<<<< HEAD
             if ((Length - 2 * circles[i].r) <= 0) {
-=======
-            cout << Length << endl;
-            if ((Length - circles[i].r - circles[j].r) <= 0) {
->>>>>>> b775660835071de8d93e0ed5f68ffc58eb7407b0
-                circles[i].intersec[j] = 1;
-                circles[j].intersec[i] = 1;
-                circles[i].inter[j] = "circle";
-                circles[j].inter[i] = "circle";
-            } else {
-                circles[i].intersec[j] = 0;
-                circles[j].intersec[i] = 0;
+                cout << Length << endl;
+                if ((Length - circles[i].r - circles[j].r) <= 0) {
+                    circles[i].intersec[j] = 1;
+                    circles[j].intersec[i] = 1;
+                    circles[i].inter[j] = "circle";
+                    circles[j].inter[i] = "circle";
+                } else {
+                    circles[i].intersec[j] = 0;
+                    circles[j].intersec[i] = 0;
+                }
             }
         }
     }
