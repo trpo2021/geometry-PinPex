@@ -23,7 +23,6 @@ CTEST(Find_points, find)
     temp1 = Point1[2];
     temp2 = Points[2];
     ASSERT_DBL_NEAR(temp1, temp2);
-    system("pause");
 }
 CTEST(intersections, intersection)
 {
@@ -51,8 +50,6 @@ CTEST(intersections, intersection)
     int temp1 = circles[0].intersec[1], temp2 = circles[1].intersec[0];
 
     ASSERT_EQUAL(temp1, temp2);
-
-    system("pause");
 }
 CTEST(intersection_and_find, intersection)
 {
@@ -84,13 +81,10 @@ CTEST(intersection_and_find, intersection)
     int temp1 = circles[0].intersec[1], temp2 = circles[1].intersec[0];
 
     ASSERT_EQUAL(temp1, temp2);
-
-    system("pause");
 }
 CTEST(Calculating_circle, area_and_perimeter)
 {
     const double Number = 1389.10256;
 	ASSERT_DBL_NEAR(calcParam(Number), 8727.98879516);
 	ASSERT_DBL_NEAR(calcArea(Number), 6062035.7895);
-    system("pause");
 }
