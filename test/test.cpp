@@ -1,4 +1,5 @@
 #include <ctest.h>
+#include <cmath>
 #include <iostream>
 #include <libgeometry/libgeometry.h>
 #include <string>
@@ -23,6 +24,7 @@ CTEST(Find_points, find)
     temp1 = Point1[2];
     temp2 = Points[2];
     ASSERT_DBL_NEAR(temp1, temp2);
+    system("pause");
 }
 CTEST(intersections, intersection)
 {
@@ -34,8 +36,8 @@ CTEST(intersections, intersection)
     circles[0].r = 1;
 
     circles[1].Ob = "1";
-    circles[1].p1 = 2.707106781186547524400844362105;
-    circles[1].p2 = 2.707106781186547524400844362105;
+    circles[1].p1 = 1 + sqrt(2)/2;
+    circles[1].p2 = 1 + sqrt(2)/2;
     circles[1].r = 1;
 
     const int n = 2;
@@ -50,12 +52,17 @@ CTEST(intersections, intersection)
     int temp1 = circles[0].intersec[1], temp2 = circles[1].intersec[0];
 
     ASSERT_EQUAL(temp1, temp2);
+	delete[] circles[0].intersec;
+	delete[] circles[0].inter;
+	delete[] circles[1].intersec;
+	delete[] circles[1].inter;
+    system("pause");
 }
 CTEST(intersection_and_find, intersection)
 {
     cir circles[2];
     string str1("circle(1 1, 1)");
-    string str2("circle(2.707106781186547524400844362105 2.707106781186547524400844362105, 1)");
+    string str2("circle(1.707106781186547524400844362105 1.707106781186547524400844362105, 1)");
     double Points[3];
 
     findPoints(str1, Points);
@@ -81,10 +88,16 @@ CTEST(intersection_and_find, intersection)
     int temp1 = circles[0].intersec[1], temp2 = circles[1].intersec[0];
 
     ASSERT_EQUAL(temp1, temp2);
+	delete[] circles[0].intersec;
+	delete[] circles[0].inter;
+	delete[] circles[1].intersec;
+	delete[] circles[1].inter;
+    system("pause");
 }
 CTEST(Calculating_circle, area_and_perimeter)
 {
     const double Number = 1389.10256;
 	ASSERT_DBL_NEAR(calcParam(Number), 8727.98879516);
 	ASSERT_DBL_NEAR(calcArea(Number), 6062035.7895);
+    system("pause");
 }
