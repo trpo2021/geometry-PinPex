@@ -13,7 +13,7 @@ jobs:
         run: git ls-files *.{cpp,h} | xargs clang-format -i && git diff --exit-code
         
         - name: Check codestyle tests
-        run:  clang-format ./test/test.cpp ./test/main.cpp ./thirdparty/ctest.h -i && git diff --exit-code
+        run: git ls-files /test/*.cpp /thirdparty/*.h clang-format -i && git diff --exit-code
 
       - name: Test
         run: make test && ./bin/test.exe
