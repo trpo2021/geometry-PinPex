@@ -1,11 +1,12 @@
 #ifndef IND_GEOMETRY
 #define IND_GEOMETRY
 
-#pragma once
 #include <iostream>
 #include <string.h>
 
 using namespace std;
+
+const double pi = 3.141592653589793238463;
 
 struct cir {
     string Ob;
