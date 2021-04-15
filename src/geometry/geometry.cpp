@@ -5,7 +5,6 @@
 #include <string.h>
 
 using namespace std;
-const double pi = 3.141592653589793238463;
 
 int main()
 {
