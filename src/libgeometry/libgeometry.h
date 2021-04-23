@@ -41,7 +41,7 @@ double calcArea(double Number);
 double calcParam(double Number);
 double calcParamtriandArea(double* Points, double* area);
 
-void findPoints(string Object, double* Points);
-void findvert(string Object, double* Points);
+int findPoints(string Object, double* Points);
+int findvert(string Object, double* Points);
 
 #endif
