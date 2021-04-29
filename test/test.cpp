@@ -48,7 +48,7 @@ CTEST(Find_points, checking_for_correctness)
         ASSERT_TRUE(1);
     if (findPoints(circle4, Points) == 505)
         ASSERT_TRUE(1);
-		
+
     string triangle1("triangle( 1 1, 1 1, 1 1)");
     string triangle2("triangle)1 1, 1 1, 1 1)");
     string triangle3("triangle(1 1, 1 1, 1 1, 1 1)");
