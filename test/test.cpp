@@ -48,6 +48,23 @@ CTEST(Find_points, checking_for_correctness)
         ASSERT_TRUE(1);
     if (findPoints(circle4, Points) == 505)
         ASSERT_TRUE(1);
+		
+    string triangle1("triangle( 1 1, 1 1, 1 1)");
+    string triangle2("triangle)1 1, 1 1, 1 1)");
+    string triangle3("triangle(1 1, 1 1, 1 1, 1 1)");
+    string triangle4("triangle(1 1, 1 1, 1 1) 2124124");
+    string triangle5("triangle(x x, 1 1, 1 1)");
+    string triangle6("triangle(1 1, 1 1, 1 1(");
+    if (findvert(triangle1, Points) == 202)
+        ASSERT_TRUE(1);
+    if (findvert(triangle2, Points) == 101)
+        ASSERT_TRUE(1);
+    if (findvert(triangle3, Points) == 404)
+        ASSERT_TRUE(1);
+    if (findvert(triangle4, Points) == 606)
+        ASSERT_TRUE(1);
+    if (findvert(triangle5, Points) == 505)
+        ASSERT_TRUE(1);
 }
 CTEST(correctly_input, title)
 {
