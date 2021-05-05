@@ -8,11 +8,13 @@ using namespace std;
 
 int main()
 {
+    int COLUMN;
     int n, i, j;
     double Points[6];
     double perimeter, area;
     bool HaveCir = 0;
     bool HaveTri = 0;
+    int HaveERROR = 0;
 
     printf("How many objects you wish input?\n");
     n = input();
@@ -36,7 +38,12 @@ int main()
             HaveCir = 1;
             tr[i].Ob = " ";
             circles[i].Ob = Object;
-            findPoints(Object, Points);
+            HaveERROR = findPoints(Object, Points, COLUMN);
+            if (HaveERROR != 0) {
+                ERROR_OUTPUT(HaveERROR, COLUMN);
+                system("pause");
+                exit(1);
+            }
             perimeter = calcParam(Points[2]);
             area = calcArea(Points[2]);
             circles[i].p1 = Points[0];
@@ -49,13 +56,18 @@ int main()
         case (2): {
             HaveTri = 1;
             circles[i].Ob = " ";
-            findvert(Object, Points);
+            HaveERROR = findvert(Object, Points, COLUMN);
+            if (HaveERROR != 0) {
+                ERROR_OUTPUT(HaveERROR, COLUMN);
+                system("pause");
+                exit(1);
+            }
             tr[i].Ob = Object;
             perimeter = calcParamtriandArea(Points, &area);
             if (perimeter == -1) {
-                cout << "This triangle not exists" << endl;
-                tr[i].ar = 0;
-                tr[i].per = 0;
+                ERROR_OUTPUT(101, 0);
+                system("pause");
+                exit(1);
                 break;
             }
             for (j = 0; j < 6; ++j)
@@ -66,9 +78,9 @@ int main()
             break;
         }
         case (0): {
-            cout << "Error at column 0: expected 'circle', 'triangle' or "
-                    "'polygon'"
-                 << endl;
+            ERROR_OUTPUT(202, 0);
+            system("pause");
+            exit(1);
             break;
         }
         }

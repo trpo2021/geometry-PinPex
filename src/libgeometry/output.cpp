@@ -37,3 +37,50 @@ void output(cir* circles, tri* tr, int n)
         }
     }
 }
+
+void ERROR_OUTPUT(int ERROR_NUMBER, int COLUMN_ERROR)
+{
+    cout << "Error at column " << COLUMN_ERROR << ": ";
+    switch (ERROR_NUMBER) {
+    case 101: {
+        cout << "this triangle not existes" << endl;
+        break;
+    }
+    case 202: {
+        cout << "expected 'circle' or 'triangle'" << endl;
+        break;
+    }
+    case 303: {
+        cout << "expected '('" << endl;
+        break;
+    }
+    case 4041: {
+        cout << "a few spaces for circle" << endl;
+        break;
+    }
+    case 4042: {
+        cout << "a few spaces for triangle" << endl;
+        break;
+    }
+    case 505: {
+        cout << "expected '<double>'" << endl;
+        break;
+    }
+    case 6061: {
+        cout << "a few elements for circle" << endl;
+        break;
+    }
+    case 6062: {
+        cout << "a few elements for triangle" << endl;
+        break;
+    }
+    case 707: {
+        cout << "expected ')'" << endl;
+        break;
+    }
+    case 808: {
+        cout << "unexpected token" << endl;
+        break;
+    }
+    }
+}
