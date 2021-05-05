@@ -4,6 +4,8 @@
 #include <libgeometry/libgeometry.h>
 #include <string>
 
+int COLUMN;
+
 CTEST(Find_points, find)
 {
     string str(
@@ -12,7 +14,7 @@ CTEST(Find_points, find)
 
     double Points[3];
 
-    findPoints(str, Points);
+    findPoints(str, Points, COLUMN);
 
     const double Point1[3]
             = {84621856.234841231, 84621856.234841231, 84621856.234841231};
@@ -27,7 +29,6 @@ CTEST(Find_points, find)
     temp1 = Point1[2];
     temp2 = Points[2];
     ASSERT_DBL_NEAR(temp1, temp2);
-    system("pause");
 }
 CTEST(Find_points, checking_for_correctness)
 {
@@ -38,15 +39,23 @@ CTEST(Find_points, checking_for_correctness)
     string circle4("circle(1 1, 1) 2124124");
     string circle5("circle(x x, 1)");
     string circle6("circle(1 1, 1(");
-    if (findPoints(circle1, Points) == 202)
+    int temp = findPoints(circle1, Points, COLUMN);
+    if (temp == 4041 && COLUMN == 7)
         ASSERT_TRUE(1);
-    if (findPoints(circle2, Points) == 101)
+    temp = findPoints(circle2, Points, COLUMN);
+    if (temp == 303 && COLUMN == 6)
         ASSERT_TRUE(1);
-    if (findPoints(circle3, Points) == 404)
+    temp = findPoints(circle3, Points, COLUMN);
+    if (temp == 6061 && COLUMN == 13)
         ASSERT_TRUE(1);
-    if (findPoints(circle4, Points) == 606)
+    temp = findPoints(circle4, Points, COLUMN);
+    if (temp == 808 && COLUMN == 15)
         ASSERT_TRUE(1);
-    if (findPoints(circle4, Points) == 505)
+    temp = findPoints(circle5, Points, COLUMN);
+    if (temp == 505 && COLUMN == 7)
+        ASSERT_TRUE(1);
+    temp = findPoints(circle6, Points, COLUMN);
+    if (temp == 707 && COLUMN == 13)
         ASSERT_TRUE(1);
 
     string triangle1("triangle( 1 1, 1 1, 1 1)");
@@ -55,15 +64,23 @@ CTEST(Find_points, checking_for_correctness)
     string triangle4("triangle(1 1, 1 1, 1 1) 2124124");
     string triangle5("triangle(x x, 1 1, 1 1)");
     string triangle6("triangle(1 1, 1 1, 1 1(");
-    if (findvert(triangle1, Points) == 202)
+    temp = findPoints(triangle1, Points, COLUMN);
+    if (temp == 4041 && COLUMN == 9)
         ASSERT_TRUE(1);
-    if (findvert(triangle2, Points) == 101)
+    temp = findPoints(triangle2, Points, COLUMN);
+    if (temp == 303 && COLUMN == 8)
         ASSERT_TRUE(1);
-    if (findvert(triangle3, Points) == 404)
+    temp = findPoints(triangle3, Points, COLUMN);
+    if (temp == 6061 && COLUMN == 22)
         ASSERT_TRUE(1);
-    if (findvert(triangle4, Points) == 606)
+    temp = findPoints(triangle4, Points, COLUMN);
+    if (temp == 808 && COLUMN == 24)
         ASSERT_TRUE(1);
-    if (findvert(triangle5, Points) == 505)
+    temp = findPoints(triangle5, Points, COLUMN);
+    if (temp == 505 && COLUMN == 9)
+        ASSERT_TRUE(1);
+    temp = findPoints(triangle6, Points, COLUMN);
+    if (temp == 707 && COLUMN == 22)
         ASSERT_TRUE(1);
 }
 CTEST(correctly_input, title)
@@ -98,7 +115,6 @@ CTEST(correctly_input, title)
         ASSERT_TRUE(1);
     if (ind(str5triangle) == 0)
         ASSERT_TRUE(1);
-    system("pause");
 }
 CTEST(intersections, circles_without_find)
 {
@@ -130,7 +146,6 @@ CTEST(intersections, circles_without_find)
     delete[] circles[0].inter;
     delete[] circles[1].intersec;
     delete[] circles[1].inter;
-    system("pause");
 }
 CTEST(intersection, circles_with_find)
 {
@@ -141,13 +156,13 @@ CTEST(intersection, circles_with_find)
             "1.707106781186547524400844362105, 1)");
     double Points[3];
 
-    findPoints(str1, Points);
+    findPoints(str1, Points, COLUMN);
     circles[0].Ob = str1;
     circles[0].p1 = Points[0];
     circles[0].p2 = Points[1];
     circles[0].r = Points[2];
 
-    findPoints(str2, Points);
+    findPoints(str2, Points, COLUMN);
     circles[1].Ob = str2;
     circles[1].p1 = Points[0];
     circles[1].p2 = Points[1];
@@ -168,7 +183,6 @@ CTEST(intersection, circles_with_find)
     delete[] circles[0].inter;
     delete[] circles[1].intersec;
     delete[] circles[1].inter;
-    system("pause");
 }
 CTEST(intersections, triangles_and_circles)
 {
@@ -204,7 +218,7 @@ CTEST(intersections, triangles_and_circles)
             HaveCir = 1;
             tr[i].Ob = " ";
             circles[i].Ob = Object;
-            findPoints(Object, Points);
+            findPoints(Object, Points, COLUMN);
             perimeter = calcParam(Points[2]);
             area = calcArea(Points[2]);
             circles[i].p1 = Points[0];
@@ -217,14 +231,12 @@ CTEST(intersections, triangles_and_circles)
         case (2): {
             HaveTri = 1;
             circles[i].Ob = " ";
-            findvert(Object, Points);
+            findvert(Object, Points, COLUMN);
             tr[i].Ob = Object;
             perimeter = calcParamtriandArea(Points, &area);
             if (perimeter == -1) {
-                cout << "This triangle not exists" << endl;
                 tr[i].ar = 0;
                 tr[i].per = 0;
-                break;
             }
             for (j = 0; j < 6; ++j)
                 tr[i].ps[j] = Points[j];
@@ -243,12 +255,10 @@ CTEST(intersections, triangles_and_circles)
     ASSERT_EQUAL(temp1, temp2);
     delete[] circles;
     delete[] tr;
-    system("pause");
 }
 CTEST(Calculating_circle, area_and_perimeter)
 {
     const double Number = 1389.10256;
     ASSERT_DBL_NEAR(calcParam(Number), 8727.98879516);
     ASSERT_DBL_NEAR(calcArea(Number), 6062035.7895);
-    system("pause");
 }
